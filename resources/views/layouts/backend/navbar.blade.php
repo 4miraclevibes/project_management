@@ -32,6 +32,14 @@
                 </a>
               </li>
 
+              <!-- All Projects -->
+              <li class="menu-item {{ Route::is('projects.all') ? 'active' : '' }}">
+                <a href="{{ route('projects.all', Auth::user()->id) }}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bxs-book"></i>
+                  <div data-i18n="All Projects">All Projects</div>
+                </a>
+              </li>
+
               <!-- Users -->
               <li class="menu-item {{ Route::is('users*') ? 'active' : '' }}">
                 <a href="{{ route('users.index') }}" class="menu-link">
