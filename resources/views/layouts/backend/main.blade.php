@@ -59,20 +59,7 @@
         .dt-input{
           margin-right: 15px !important;
         }
-        .alert {
-        position: fixed;
-        top: 50px;
-        right: 50%;
-        transform: translateX(50%);
-        width: max-content;
-        z-index: 9999;
-        padding: 1rem 1.5rem;
-        border-radius: 0.375rem;
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-      }
-      .alert .btn-close {
-        margin-left: 20px; /* Tambahkan margin kiri */
-      }
+
       .menu-link{
         color: #fff !important;
       }
@@ -120,21 +107,82 @@
       margin: 20px auto;
     }
       
-      
+    .custom-alert {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        max-width: 300px;
+        padding: 12px 15px;
+        border-radius: 4px;
+        font-weight: 500;
+        z-index: 9999;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .custom-alert.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .custom-alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        border-left: 4px solid #28a745;
+    }
+    .custom-alert-error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border-left: 4px solid #dc3545;
+    }
+    .custom-alert-content {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+    .custom-alert-icon {
+        margin-right: 10px;
+        font-size: 1.2em;
+    }
+    .custom-alert-message {
+        line-height: 1.4;
+        font-size: 14px;
+    }
+    .custom-alert-close {
+        font-size: 1.2em;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        opacity: .5;
+        cursor: pointer;
+        padding-left: 10px;
+    }
+    .custom-alert-close:hover {
+        opacity: .75;
+    }
       </style>
   </head>
 
   <body>
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-dismissible fade show text-center" id="alert" role="alert">
-      <h5 class="text-black">{{ $message }}</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @elseif ($message = Session::get('error'))
-    <div class="alert alert-danger alert-dismissible fade show text-center" id="alert" role="alert">
-      <h5 class="text-black">{{ $message }}</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    @if(Session::has('success') || Session::has('error'))
+      <div id="customAlert" class="custom-alert {{ Session::has('success') ? 'custom-alert-success' : 'custom-alert-error' }}">
+          <div class="custom-alert-content">
+            <span class="custom-alert-icon">
+                @if(Session::has('success'))
+                    <i class="bx bx-check-circle"></i>
+                @else
+                    <i class="bx bx-error-circle"></i>
+                @endif
+            </span>
+            <span class="custom-alert-message">{{ Session::get('success') ?? Session::get('error') }}</span>
+          </div>
+          <span class="custom-alert-close" onclick="closeAlert()">&times;</span>
+      </div>
     @endif
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
@@ -344,9 +392,6 @@
       });
     </script>
 
-
-  
-
     <!-- build:js assets/vendor/js/core.js -->
     <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
@@ -375,5 +420,28 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var alert = document.getElementById('customAlert');
+          if (alert) {
+              setTimeout(function() {
+                  alert.classList.add('show');
+              }, 100);
+              setTimeout(function() {
+                  closeAlert();
+              }, 5000);
+          }
+      });
+
+      function closeAlert() {
+          var alert = document.getElementById('customAlert');
+          if (alert) {
+              alert.classList.remove('show');
+              setTimeout(function() {
+                  alert.remove();
+              }, 300);
+          }
+      }
+    </script>
   </body>
 </html>
