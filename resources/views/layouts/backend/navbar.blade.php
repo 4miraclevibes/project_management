@@ -34,7 +34,7 @@
 
               <!-- All Projects -->
               <li class="menu-item {{ Route::is('projects.all') ? 'active' : '' }}">
-                <a href="{{ route('projects.all', Auth::user()->id) }}" class="menu-link">
+                <a href="{{ route('projects.all', Auth::user()->id ?? 1) }}" class="menu-link">
                   <i class="menu-icon tf-icons bx bxs-book"></i>
                   <div data-i18n="All Projects">All Projects</div>
                 </a>
