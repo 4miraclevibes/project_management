@@ -25,7 +25,7 @@
               </li>
 
               <!-- Project -->
-              <li class="menu-item {{ Route::is(['projects*', 'chapters*', 'contributors*']) ? 'active' : '' }}">
+              <li class="menu-item {{ Route::is(['projects.index', 'projects.edit', 'projects.show', 'projects.create', 'chapters*', 'contributors*']) ? 'active' : '' }}">
                 <a href="{{ route('projects.index') }}" class="menu-link">
                   <i class="menu-icon tf-icons bx bxs-book"></i>
                   <div data-i18n="Projects">Projects</div>
