@@ -124,7 +124,7 @@ class ProjectController extends Controller
 
     public function all($id)
     {
-        $projects = Project::where('status', 'publish')->where('user_id', $id)->get();
+        $projects = Project::whereNot('status', 'pending')->where('user_id', $id)->get();
         return view('pages.backend.projects.all', compact('projects'));
     }
 }
