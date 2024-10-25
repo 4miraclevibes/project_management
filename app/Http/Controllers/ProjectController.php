@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\CommentReply;
 use App\Models\Project;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -72,6 +73,7 @@ class ProjectController extends Controller
         $data['end_date'] = date('Y-m-d', strtotime('+' . $request->estimate_time . ' days', strtotime($project->created_at)));
 
         if ($request->hasFile('thumbnail')) {
+            Storage::delete($project->thumbnail);
             $data['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
         }
 
@@ -82,6 +84,9 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
+        if ($project->thumbnail) {
+            Storage::delete($project->thumbnail);
+        }
         $project->delete();
         return redirect()->route('projects.index')->with('success', 'Project deleted successfully.');
     }
