@@ -18,4 +18,10 @@ class LandingController extends Controller
         $project = Project::find($id);
         return view('pages.frontend.project', compact('project'));
     }
+
+    public function projectList()
+    {
+        $projects = Project::all();
+        return view('pages.frontend.projectList', compact('projects'));
+    }
 }
