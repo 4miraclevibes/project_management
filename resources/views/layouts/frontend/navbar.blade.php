@@ -9,10 +9,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('landing') }}">Home</a>
+                    <a class="nav-link {{ Route::is('landing') ? 'active' : '' }}" aria-current="page" href="{{ route('landing') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('portofolio') }}">Portofolio</a>
+                    <a class="nav-link {{ Route::is('portofolio') ? 'active' : '' }}" href="{{ route('portofolio') }}">Portofolio</a>
                 </li>
             </ul>
             @if (Auth::check())
