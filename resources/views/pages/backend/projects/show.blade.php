@@ -26,7 +26,6 @@
                 <div class="col-md-4 text-end">
                     <p>Durasi Projek: {{ $project->estimate_time }} Days</p>
                     <a href="{{ route('contributors.create', $project->id) }}" class="btn btn-sm btn-primary">Join Contributor</a>
-                    <a href="https://filemanager.layananberhentikuliah.com/files" target="_blank" class="btn btn-sm btn-success">Upload Image</a>
                 </div>
             </div>
             <div class="row">

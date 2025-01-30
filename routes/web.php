@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/project/{id}', [LandingController::class, 'project'])->name('project');
-Route::get('/projects/{id}', [ProjectController::class, 'all'])->name('projects.all');
 Route::get('/portofolio', [LandingController::class, 'portofolio'])->name('portofolio');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

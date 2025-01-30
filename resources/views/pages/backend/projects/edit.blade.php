@@ -5,7 +5,6 @@
     <h1>Edit Project</h1>
     <div class="row mb-3">
         <a href="{{ route('projects.show', $project->id) }}" class="btn btn-sm btn-secondary col-md-1">Back</a>
-        <a href="https://filemanager.layananberhentikuliah.com/files" target="_blank" class="btn btn-sm btn-success mx-3 col-md-1">Upload Image</a>
     </div>
     <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
         @csrf

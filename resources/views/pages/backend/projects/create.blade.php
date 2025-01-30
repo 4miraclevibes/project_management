@@ -5,7 +5,6 @@
     <h1>Create Project</h1>
     <div class="row mb-3">
         <a href="{{ route('projects.index') }}" class="btn btn-sm btn-secondary mx-3 col-md-1">Back</a>
-        <a href="https://filemanager.layananberhentikuliah.com/files" target="_blank" class="btn btn-sm btn-success col-md-1">Upload Image</a>
     </div>
     <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf

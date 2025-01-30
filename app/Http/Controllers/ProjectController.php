@@ -126,10 +126,4 @@ class ProjectController extends Controller
 
         return redirect()->route('projects.show', $comment->project->id)->with('success', 'Comment added successfully.');
     }
-
-    public function all($id)
-    {
-        $projects = Project::whereNot('status', 'pending')->where('user_id', $id)->get();
-        return view('pages.backend.projects.all', compact('projects'));
-    }
 }
