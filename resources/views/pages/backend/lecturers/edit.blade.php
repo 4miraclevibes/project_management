@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Edit Teacher</h1>
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('lecturers.update', $lecturer->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="row mb-3">
@@ -26,8 +26,8 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="nidn" class="form-label">NIDN</label>
-                <input type="text" class="form-control" id="nidn" name="nidn" value="{{ $lecturer->nidn }}" required>
+                <label for="nip" class="form-label">NIP</label>
+                <input type="text" class="form-control" id="nip" name="nip" value="{{ $lecturer->nip }}" required>
             </div>
         </div>
         <div class="row mb-3">

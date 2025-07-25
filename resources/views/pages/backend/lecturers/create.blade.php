@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Create Teacher</h1>
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('lecturers.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row mb-3">
             <div class="col-md-6">
@@ -25,8 +25,8 @@
         </div>
         <div class="row mb-3">
             <div class="col-md-6">
-                <label for="nidn" class="form-label">NIDN</label>
-                <input type="text" class="form-control" id="nidn" name="nidn" required>
+                <label for="nip" class="form-label">NIP</label>
+                <input type="text" class="form-control" id="nip" name="nip" required>
             </div>
             <div class="col-md-6">
                 <label for="phone" class="form-label">Phone</label>
