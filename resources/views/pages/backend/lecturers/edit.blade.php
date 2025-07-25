@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Edit Lecturer</h1>
+    <h1>Edit Teacher</h1>
     <form action="#" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')

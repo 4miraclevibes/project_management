@@ -19,6 +19,7 @@
             <th class="text-white">Status</th>
             <th class="text-white">Start Date</th>
             <th class="text-white">End Date</th>
+            <th class="text-white">Score</th>
             <th class="text-white">Update Status</th>
             <th class="text-white">Actions</th>
           </tr>
@@ -31,6 +32,7 @@
             <td>{{ $project->status }}</td>
             <td>{{ date('l, d F Y', strtotime($project->start_date)) }}</td>
             <td>{{ date('l, d F Y', strtotime($project->end_date)) }}</td>
+            <td>{{ $project->score }}</td>
             <td>
               <form action="{{ route('projects.updateStatus', $project->id) }}" method="POST" class="d-flex">
                 @csrf

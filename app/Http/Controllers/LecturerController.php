@@ -31,7 +31,7 @@ class LecturerController extends Controller
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'study_program_id' => 'required|exists:study_programs,id',
-            'nidn' => 'required|string|max:255',
+            'nip' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -58,7 +58,7 @@ class LecturerController extends Controller
     {
         $request->validate([
             'study_program_id' => 'required|exists:study_programs,id',
-            'nidn' => 'required|string|max:255',
+            'nip' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

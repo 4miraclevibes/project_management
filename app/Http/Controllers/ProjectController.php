@@ -31,6 +31,7 @@ class ProjectController extends Controller
             'estimate_time' => 'required|integer',
             'description' => 'required|string',
             'level' => 'required|string|max:255',
+            'score' => 'nullable|integer',
         ]);
 
         $data = $request->all();
@@ -65,6 +66,7 @@ class ProjectController extends Controller
             'estimate_time' => 'required|string|max:255',
             'description' => 'required|string',
             'level' => 'required|string|max:255',
+            'score' => 'nullable|integer',
         ]);
 
         $data = $request->all();

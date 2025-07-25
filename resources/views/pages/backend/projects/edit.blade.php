@@ -40,6 +40,12 @@
                 <textarea id="editor" class="form-control" id="description" name="description">{{ $project->description }}</textarea>
             </div>
         </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="score" class="form-label">Score</label>
+                <input type="number" class="form-control" id="score" name="score" value="{{ $project->score }}">
+            </div>
+        </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>

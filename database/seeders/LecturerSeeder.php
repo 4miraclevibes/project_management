@@ -4,10 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Lecturer; // Tambahkan import model Lecturer
-use App\Models\User; // Tambahkan import model User
-use App\Models\Role; // Tambahkan import model Role
-use Illuminate\Support\Facades\Hash; // Tambahkan import untuk hashing password
+use App\Models\Lecturer;
+use App\Models\User;
+use App\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class LecturerSeeder extends Seeder
 {
@@ -21,14 +21,14 @@ class LecturerSeeder extends Seeder
         $user = User::create([
             'name' => 'Lecturer User',
             'email' => 'lecturer@example.com',
-            'password' => Hash::make('password'), // Hash password
-            'role_id' => $lecturerRole->id, // Set role_id berdasarkan role Lecturer
+            'password' => Hash::make('password'),
+            'role_id' => $lecturerRole->id,
         ]);
 
         Lecturer::create([
             'user_id' => $user->id,
-            'study_program_id' => 1, // Asumsikan study_program_id 1
-            'nidn' => '987654321',
+            'study_program_id' => 1,
+            'nip' => '987654321',
             'phone' => '08123456789',
             'address' => 'Jl. Contoh No. 2',
             'profile_picture' => 'path/to/profile_picture.jpg',

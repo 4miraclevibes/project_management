@@ -9,14 +9,14 @@
     </div>
   </div>
   <div class="card mt-2">
-    <h5 class="card-header">Table Lecturers</h5>
+    <h5 class="card-header">Table Teacher</h5>
     <div class="table-responsive text-nowrap p-3">
       <table class="table" id="example">
         <thead>
           <tr class="text-nowrap table-dark">
             <th class="text-white">No</th>
             <th class="text-white">Name</th>
-            <th class="text-white">NIDN</th>
+            <th class="text-white">NIP</th>
             <th class="text-white">Study Program</th>
             <th class="text-white">Phone</th>
             <th class="text-white">Address</th>

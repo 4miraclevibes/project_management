@@ -13,23 +13,21 @@ class StudyProgramSeeder extends Seeder
     public function run(): void
     {
         StudyProgram::create([
-            'name' => 'Teknik Informatika',
-            'code' => 'TI',
-            'department_id' => 1 // Sesuaikan dengan ID department yang sesuai
+            'name' => 'Teknik Komputer Jaringan',
+            'code' => 'TK',
+            'department_id' => 1
         ]);
 
         StudyProgram::create([
-            'name' => 'Sistem Informasi',
-            'code' => 'SI',
-            'department_id' => 1 // Sesuaikan dengan ID department yang sesuai
+            'name' => 'Akutansi',
+            'code' => 'AK',
+            'department_id' => 2
         ]);
 
         StudyProgram::create([
-            'name' => 'Teknik Elektro',
-            'code' => 'TE',
-            'department_id' => 2 // Sesuaikan dengan ID department yang sesuai
+            'name' => 'Teknik Otomotif',
+            'code' => 'TO',
+            'department_id' => 3
         ]);
-
-        // Tambahkan study program lainnya sesuai kebutuhan
     }
 }

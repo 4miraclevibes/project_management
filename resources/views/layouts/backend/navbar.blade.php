@@ -7,14 +7,14 @@
                   <img src="{{ asset('frontend/assets/images/logo-white.svg') }}" style="max-width: 150px" alt="">
                 </span>
               </a>
-  
+
               <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                 <i class="bx bx-chevron-left bx-sm align-middle"></i>
               </a>
             </div>
-  
+
             <div class="menu-inner-shadow"></div>
-  
+
             <ul class="menu-inner py-1 mt-3">
               <!-- Dashboard -->
               <li class="menu-item {{ Route::is('dashboard') ? 'active' : '' }}">
@@ -52,7 +52,7 @@
               <li class="menu-item {{ Route::is('lecturers*') ? 'active' : '' }}">
                 <a href="{{ route('lecturers.index') }}" class="menu-link">
                   <i class="menu-icon tf-icons bx bxs-chalkboard"></i>
-                  <div data-i18n="Lecturers">Lecturers</div>
+                  <div data-i18n="Lecturers">Teachers</div>
                 </a>
               </li>
 

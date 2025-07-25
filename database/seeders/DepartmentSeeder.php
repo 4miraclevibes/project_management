@@ -13,18 +13,18 @@ class DepartmentSeeder extends Seeder
     public function run(): void
     {
         Department::create([
-            'name' => 'Teknik Informatika',
-            'code' => 'TI'
+            'name' => 'Teknik Komputer Jaringan',
+            'code' => 'TKJ'
         ]);
 
         Department::create([
-            'name' => 'Sistem Informasi',
-            'code' => 'SI'
+            'name' => 'Akutansi',
+            'code' => 'AK'
         ]);
 
         Department::create([
-            'name' => 'Teknik Elektro',
-            'code' => 'TE'
+            'name' => 'Teknik Otomotif',
+            'code' => 'TO'
         ]);
     }
 }
