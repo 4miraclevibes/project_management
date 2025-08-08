@@ -33,7 +33,7 @@ class ContributorController extends Controller
 
         $project->contributors()->create([
             'role' => $request->role,
-            'score' => $request->score,
+            'score' => $request->score ?? 0,
             'user_id' => Auth::user()->id,
         ]);
         return redirect()->route('projects.index')->with('success', 'Contributor created successfully.');
@@ -43,12 +43,12 @@ class ContributorController extends Controller
     {
         $request->validate([
             'status' => 'string|required',
-            'score' => 'integer|required',
+            'score' => 'integer|nullable',
         ]);
 
         $contributor->update([
             'status' => $request->status,
-            'score' => $request->score,
+            'score' => $request->score ?? 0,
         ]);
         return back()->with('success', 'Contributor updated successfully.');
     }

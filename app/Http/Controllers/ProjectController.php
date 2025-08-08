@@ -37,6 +37,7 @@ class ProjectController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $data['start_date'] = date('Y-m-d');
+        $data['score'] = $request->score ?? 0;
         $data['end_date'] = date('Y-m-d', strtotime('+' . $request->estimate_time . ' days'));
         if ($request->hasFile('thumbnail')) {
             $data['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
@@ -71,8 +72,9 @@ class ProjectController extends Controller
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
-        $data['start_date'] = date('Y-m-d');
+        $data['start_date'] = $project->created_at;
         $data['end_date'] = date('Y-m-d', strtotime('+' . $request->estimate_time . ' days', strtotime($project->created_at)));
+        $data['score'] = $request->score ?? 0;
 
         if ($request->hasFile('thumbnail')) {
             Storage::delete($project->thumbnail);
