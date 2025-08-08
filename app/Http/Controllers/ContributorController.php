@@ -28,6 +28,7 @@ class ContributorController extends Controller
 
         $project->contributors()->create([
             'role' => $request->role,
+            'score' => $request->score,
             'user_id' => Auth::user()->id,
         ]);
         return redirect()->route('projects.index')->with('success', 'Contributor created successfully.');
