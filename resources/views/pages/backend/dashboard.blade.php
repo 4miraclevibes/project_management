@@ -99,6 +99,7 @@
                       <tr class="text-nowrap table-dark">
                         <th class="text-white">No</th>
                         <th class="text-white">Name</th>
+                        <th class="text-white">Score</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -106,6 +107,7 @@
                       <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $user->name }}</td>
+                        <td>{{ $user->contributors->sum('score') }}</td>
                       </tr>
                       @endforeach
                     </tbody>

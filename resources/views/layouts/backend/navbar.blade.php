@@ -32,6 +32,7 @@
                 </a>
               </li>
 
+              @if (Auth::user()->role->name == 'admin')
               <!-- Users -->
               <li class="menu-item {{ Route::is('users*') ? 'active' : '' }}">
                 <a href="{{ route('users.index') }}" class="menu-link">
@@ -71,6 +72,8 @@
                   <div data-i18n="Study Programs">Study Programs</div>
                 </a>
               </li>
+
+              @endif
             </ul>
           </aside>
           <!-- / Menu -->

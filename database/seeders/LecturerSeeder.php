@@ -16,11 +16,11 @@ class LecturerSeeder extends Seeder
      */
     public function run(): void
     {
-        $lecturerRole = Role::where('name', 'lecturer')->first();
+        $lecturerRole = Role::where('name', 'teacher')->first();
 
         $user = User::create([
-            'name' => 'Lecturer User',
-            'email' => 'lecturer@example.com',
+            'name' => 'Teacher User',
+            'email' => 'teacher@example.com',
             'password' => Hash::make('password'),
             'role_id' => $lecturerRole->id,
         ]);

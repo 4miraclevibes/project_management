@@ -18,8 +18,8 @@ class RoleSeeder extends Seeder
         ]);
 
         Role::create([
-            'name' => 'lecturer',
-            'description' => 'Lecturer with access to manage courses and students'
+            'name' => 'teacher',
+            'description' => 'Teacher with access to manage courses and students'
         ]);
 
         Role::create([

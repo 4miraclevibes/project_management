@@ -20,8 +20,10 @@
             <th class="text-white">Start Date</th>
             <th class="text-white">End Date</th>
             <th class="text-white">Score</th>
+            @if (Auth::user()->id == $project->user_id)
             <th class="text-white">Update Status</th>
             <th class="text-white">Actions</th>
+            @endif
           </tr>
         </thead>
         <tbody>
@@ -33,6 +35,7 @@
             <td>{{ date('l, d F Y', strtotime($project->start_date)) }}</td>
             <td>{{ date('l, d F Y', strtotime($project->end_date)) }}</td>
             <td>{{ $project->score }}</td>
+            @if (Auth::user()->id == $project->user_id)
             <td>
               <form action="{{ route('projects.updateStatus', $project->id) }}" method="POST" class="d-flex">
                 @csrf
@@ -58,6 +61,7 @@
                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
               </form>
             </td>
+            @endif
           </tr>
           @endforeach
         </tbody>
