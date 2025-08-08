@@ -108,7 +108,7 @@
                       <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->projects->count() }}</td>
+                        <td>{{ $user->contributors->count() }}</td>
                         <td>{{ $user->contributors->sum('score') }}</td>
                       </tr>
                       @endforeach
