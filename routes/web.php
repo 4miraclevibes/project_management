@@ -82,6 +82,7 @@ Route::middleware('auth')->group(function () {
     Route::get('projects/{project}/contributors/create', [ContributorController::class, 'create'])->name('contributors.create');
     Route::post('projects/{project}/contributors', [ContributorController::class, 'store'])->name('contributors.store');
     Route::patch('projects/contributors/{contributor}', [ContributorController::class, 'update'])->name('contributors.update');
+    Route::get('projects/contributors/{contributor}/edit', [ContributorController::class, 'edit'])->name('contributors.edit');
 
     //Project Chapter routes
     Route::get('projects/{project}/chapters', [ProjectChapterController::class, 'index'])->name('chapters.index');

@@ -10,10 +10,6 @@
                 <label for="role" class="form-label">Role</label>
                 <input type="text" class="form-control" id="role" name="role" required>
             </div>
-            <div class="col-md-6">
-                <label for="score" class="form-label">Score</label>
-                <input type="number" class="form-control" id="score" name="score" required>
-            </div>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
     </form>

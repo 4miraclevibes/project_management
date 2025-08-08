@@ -20,6 +20,11 @@ class ContributorController extends Controller
         return view('pages.backend.projects.contributors.create', compact('project'));
     }
 
+    public function edit(Contributor $contributor)
+    {
+        return view('pages.backend.projects.contributors.edit', compact('contributor'));
+    }
+
     public function store(Project $project, Request $request)
     {
         $request->validate([

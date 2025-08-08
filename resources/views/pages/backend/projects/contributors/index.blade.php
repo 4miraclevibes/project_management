@@ -32,7 +32,9 @@
             <td>{{ $contributor->role }}</td>
             <td>{{ $contributor->status }}</td>
             <td>
-                <form action="{{ route('contributors.update', $contributor->id) }}" method="POST" class="d-flex">
+                @if (Auth::user()->role->name == 'admin' || Auth::user()->role->name == 'teacher')
+                <div class="d-flex justify-content-center">
+                <form action="{{ route('contributors.update', $contributor->id) }}" method="POST">
                     @csrf
                     @method('PATCH')
                     <div class="input-group input-group-sm mx-2 w-50">
@@ -48,6 +50,13 @@
                     </div>
                     <button type="submit" class="btn btn-warning btn-sm mx-2">Update</button>
                 </form>
+                <a href="{{ route('contributors.edit', $contributor->id) }}" class="btn btn-warning btn-sm mx-2">Edit</a>
+                </div>
+                @else
+                <div class="d-flex justify-content-center">
+                    <span class="badge bg-primary">{{ $contributor->status }}</span>
+                </div>
+                @endif
             </td>
           </tr>
           @endforeach
