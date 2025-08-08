@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->longText('description')->nullable();
-            $table->integer('score')->default(0);
+            $table->integer('score')->default(0)->nullable();
             $table->timestamps();
         });
     }

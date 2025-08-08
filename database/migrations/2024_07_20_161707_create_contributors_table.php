@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
-            $table->integer('score')->default(0);
+            $table->integer('score')->default(0)->nullable();
             $table->string('role')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();
