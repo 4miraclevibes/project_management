@@ -3,11 +3,13 @@
 @section('content')
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
-  <div class="card">
-    <div class="card-header">
-      <a href="{{ route('projects.create') }}" class="btn btn-primary btn-sm">Create</a>
+    @if (Auth::user()->role->name == 'teacher' || Auth::user()->role->name == 'admin')
+    <div class="card">
+      <div class="card-header">
+        <a href="{{ route('projects.create') }}" class="btn btn-primary btn-sm">Create</a>
+      </div>
     </div>
-  </div>
+    @endif
   <div class="card mt-2">
     <h5 class="card-header">Table Projects</h5>
     <div class="table-responsive text-nowrap p-3">
