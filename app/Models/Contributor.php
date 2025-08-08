@@ -9,7 +9,7 @@ class Contributor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'project_id', 'role', 'status'];
+    protected $fillable = ['user_id', 'project_id', 'role', 'status', 'score'];
 
     public function user()
     {

@@ -19,7 +19,7 @@ class ContributorController extends Controller
     {
         return view('pages.backend.projects.contributors.create', compact('project'));
     }
-    
+
     public function store(Project $project, Request $request)
     {
         $request->validate([
@@ -37,10 +37,12 @@ class ContributorController extends Controller
     {
         $request->validate([
             'status' => 'string|required',
+            'score' => 'integer|required',
         ]);
 
         $contributor->update([
             'status' => $request->status,
+            'score' => $request->score,
         ]);
         return back()->with('success', 'Contributor updated successfully.');
     }
