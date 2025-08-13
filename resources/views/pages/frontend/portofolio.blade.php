@@ -18,6 +18,13 @@
                         </div>
                         <small class="text-muted">{{ date('d F Y', strtotime($project->created_at)) }}</small>
                     </div>
+                    @foreach ($project->contributors as $contributor)
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset('assets/img/avatars/1.png') }}" class="rounded-circle me-2" alt="Avatar" width="30" height="30">
+                            <span class="text-muted">{{ $contributor->user->name }}</span>
+                            <span class="badge bg-success">{{ $contributor->score }}</span>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@
     <h1>Edit Contributor</h1>
     <form action="{{ route('contributors.update', $contributor->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PATCH')
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="score" class="form-label">Score</label>
