@@ -31,6 +31,13 @@ class ContributorController extends Controller
             'role' => 'string|required',
         ]);
 
+        // Cek apakah user sudah terdaftar sebagai contributor di project ini
+        $existingContributor = $project->contributors()->where('user_id', Auth::user()->id)->first();
+
+        if ($existingContributor) {
+            return redirect()->route('projects.index')->with('error', 'User sudah terdaftar sebagai contributor di project ini.');
+        }
+
         $project->contributors()->create([
             'role' => $request->role,
             'score' => $request->score ?? 0,

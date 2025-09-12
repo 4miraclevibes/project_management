@@ -33,5 +33,20 @@ class LecturerSeeder extends Seeder
             'address' => 'Jl. Contoh No. 2',
             'profile_picture' => 'path/to/profile_picture.jpg',
         ]);
+
+        // Tambahkan user teacher lain yang belum terdaftar sebagai lecturer
+        User::create([
+            'name' => 'Teacher 2',
+            'email' => 'teacher2@example.com',
+            'password' => Hash::make('password'),
+            'role_id' => $lecturerRole->id,
+        ]);
+
+        User::create([
+            'name' => 'Teacher 3',
+            'email' => 'teacher3@example.com',
+            'password' => Hash::make('password'),
+            'role_id' => $lecturerRole->id,
+        ]);
     }
 }

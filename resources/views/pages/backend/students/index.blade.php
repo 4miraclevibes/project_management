@@ -5,7 +5,7 @@
 <div class="container-xxl flex-grow-1 container-p-y">
   <div class="card">
     <div class="card-header">
-      <a href="#" class="btn btn-primary btn-sm">Create</a>
+      <a href="{{ route('students.create') }}" class="btn btn-primary btn-sm">Create</a>
     </div>
   </div>
   <div class="card mt-2">
@@ -33,8 +33,8 @@
             <td>{{ $student->phone }}</td>
             <td>{{ $student->address }}</td>
             <td>
-              <a href="#" class="btn btn-warning btn-sm">Edit</a>
-              <form action="#" method="POST" style="display:inline-block;">
+              <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning btn-sm">Edit</a>
+              <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline-block;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>

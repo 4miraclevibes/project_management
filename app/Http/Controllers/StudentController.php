@@ -20,7 +20,7 @@ class StudentController extends Controller
     {
         $users = User::whereHas('role', function($query) {
             $query->where('name', 'student');
-        })->get();
+        })->whereDoesntHave('student')->get();
 
         $studyPrograms = StudyProgram::all();
         return view('pages.backend.students.create', compact('users', 'studyPrograms'));

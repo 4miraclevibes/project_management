@@ -19,8 +19,8 @@ class LecturerController extends Controller
     public function create()
     {
         $users = User::whereHas('role', function($query) {
-            $query->where('name', 'lecturer');
-        })->get();
+            $query->where('name', 'teacher');
+        })->whereDoesntHave('lecturer')->get();
 
         $studyPrograms = StudyProgram::all();
         return view('pages.backend.lecturers.create', compact('users', 'studyPrograms'));
