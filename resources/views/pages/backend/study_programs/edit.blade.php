@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Edit Konsentrasi</h1>
+    <h1>Edit Mata Pelajaran</h1>
     <form action="{{ route('study_programs.update', $studyProgram->id) }}" method="POST">
         @csrf
         @method('PATCH')

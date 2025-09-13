@@ -69,7 +69,7 @@
               <li class="menu-item {{ Route::is('study_programs*') ? 'active' : '' }}">
                 <a href="{{ route('study_programs.index') }}" class="menu-link">
                   <i class="menu-icon tf-icons bx bxs-book"></i>
-                  <div data-i18n="Study Programs">Konsentrasi</div>
+                  <div data-i18n="Study Programs">Mata Pelajaran</div>
                 </a>
               </li>
 

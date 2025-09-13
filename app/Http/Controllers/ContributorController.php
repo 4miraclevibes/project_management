@@ -31,6 +31,10 @@ class ContributorController extends Controller
             'role' => 'string|required',
         ]);
 
+        if (Auth::user()->role->name !== 'student') {
+            return redirect()->route('projects.index')->with('error', 'User tidak dapat menambahkan contributor.');
+        }
+
         // Cek apakah user sudah terdaftar sebagai contributor di project ini
         $existingContributor = $project->contributors()->where('user_id', Auth::user()->id)->first();
 

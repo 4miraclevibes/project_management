@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Create Konsentrasi</h1>
+    <h1>Create Mata Pelajaran</h1>
     <form action="{{ route('study_programs.store') }}" method="POST">
         @csrf
         <div class="row mb-3">
