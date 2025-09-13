@@ -9,7 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'name', 'status', 'thumbnail', 'estimate_time', 'start_date', 'end_date', 'description', 'level', 'score'];
+    protected $fillable = ['user_id', 'name', 'status', 'thumbnail', 'estimate_time', 'start_date', 'end_date', 'description', 'level', 'score', 'study_program_id'];
 
     public function user()
     {
@@ -29,5 +29,10 @@ class Project extends Model
     public function contributors()
     {
         return $this->hasMany(Contributor::class);
+    }
+
+    public function studyProgram()
+    {
+        return $this->belongsTo(StudyProgram::class);
     }
 }

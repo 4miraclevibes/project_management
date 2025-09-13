@@ -15,10 +15,10 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="study_program_id" class="form-label">Mata pelajaran</label>
-                <select class="form-control" id="study_program_id" name="study_program_id" required>
-                    @foreach($studyPrograms as $program)
-                        <option value="{{ $program->id }}">{{ $program->name }} || {{ $program->department->name }}</option>
+                <label for="department_id" class="form-label">Department</label>
+                <select class="form-control" id="department_id" name="department_id" required>
+                    @foreach($departments as $department)
+                        <option value="{{ $department->id }}">{{ $department->name }}</option>
                     @endforeach
                 </select>
             </div>

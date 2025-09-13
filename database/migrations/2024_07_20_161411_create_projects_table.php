@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('study_program_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('level')->default('beginner');
             $table->string('status')->default('pending');

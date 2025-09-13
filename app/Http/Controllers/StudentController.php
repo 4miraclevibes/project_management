@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\User;
-use App\Models\StudyProgram;
+use App\Models\Department;
 use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
@@ -22,15 +22,15 @@ class StudentController extends Controller
             $query->where('name', 'student');
         })->whereDoesntHave('student')->get();
 
-        $studyPrograms = StudyProgram::all();
-        return view('pages.backend.students.create', compact('users', 'studyPrograms'));
+        $departments = Department::all();
+        return view('pages.backend.students.create', compact('users', 'departments'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'user_id' => 'required|exists:users,id',
-            'study_program_id' => 'required|exists:study_programs,id',
+            'department_id' => 'required|exists:departments,id',
             'nim' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'address' => 'required|string|max:255',
@@ -50,14 +50,14 @@ class StudentController extends Controller
 
     public function edit(Student $student)
     {
-        $studyPrograms = StudyProgram::all();
-        return view('pages.backend.students.edit', compact('student', 'studyPrograms'));
+        $departments = Department::all();
+        return view('pages.backend.students.edit', compact('student', 'departments'));
     }
 
     public function update(Request $request, Student $student)
     {
         $request->validate([
-            'study_program_id' => 'required|exists:study_programs,id',
+            'department_id' => 'required|exists:departments,id',
             'nim' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'address' => 'required|string|max:255',

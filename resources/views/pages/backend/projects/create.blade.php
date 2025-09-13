@@ -28,9 +28,19 @@
         </div>
         <div class="row mb-3">
             <div class="col-md-6">
+                <label for="study_program_id" class="form-label">Mata Pelajaran</label>
+                <select name="study_program_id" id="study_program_id" class="form-control">
+                    @foreach ($studyPrograms as $studyProgram)
+                        <option value="{{ $studyProgram->id }}">{{ $studyProgram->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-6">
                 <label for="thumbnail" class="form-label">Thumbnail</label>
                 <input type="file" class="form-control" id="thumbnail" name="thumbnail">
             </div>
+        </div>
+        <div class="row mb-3">
             <div class="col-md-6">
                 <label for="estimate_time" class="form-label">Estimate Time / Days</label>
                 <input type="number" class="form-control" id="estimate_time" name="estimate_time" value="10" required>

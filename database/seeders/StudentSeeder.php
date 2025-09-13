@@ -27,7 +27,7 @@ class StudentSeeder extends Seeder
 
         Student::create([
             'user_id' => $user->id,
-            'study_program_id' => 1, // Asumsikan study_program_id 1
+            'department_id' => 1, // Asumsikan study_program_id 1
             'nim' => '123456789',
             'phone' => '08123456789',
             'address' => 'Jl. Contoh No. 1',

@@ -18,6 +18,7 @@
           <tr class="text-nowrap table-dark">
             <th class="text-white">No</th>
             <th class="text-white">Name</th>
+            <th class="text-white">Mata Pelajaran</th>
             <th class="text-white">Status</th>
             <th class="text-white">Start Date</th>
             <th class="text-white">End Date</th>
@@ -31,6 +32,7 @@
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $project->name }}</td>
+            <td>{{ $project->studyProgram->name }}</td>
             <td>{{ $project->status }}</td>
             <td>{{ date('l, d F Y', strtotime($project->start_date)) }}</td>
             <td>{{ date('l, d F Y', strtotime($project->end_date)) }}</td>

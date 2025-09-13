@@ -17,7 +17,7 @@
             <th class="text-white">No</th>
             <th class="text-white">Name</th>
             <th class="text-white">NIM</th>
-            <th class="text-white">Study Program</th>
+            <th class="text-white">Department</th>
             <th class="text-white">Phone</th>
             <th class="text-white">Address</th>
             <th class="text-white">Actions</th>
@@ -29,7 +29,7 @@
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $student->user->name }}</td>
             <td>{{ $student->nim }}</td>
-            <td>{{ $student->studyProgram->name }}</td>
+            <td>{{ $student->department->name }}</td>
             <td>{{ $student->phone }}</td>
             <td>{{ $student->address }}</td>
             <td>

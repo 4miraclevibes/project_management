@@ -15,6 +15,15 @@
                 <input type="text" class="form-control" id="name" name="name" value="{{ $project->name }}" required>
             </div>
             <div class="col-md-6">
+                <label for="study_program_id" class="form-label">Mata Pelajaran</label>
+                <select name="study_program_id" id="study_program_id" class="form-control">
+                    @foreach ($studyPrograms as $studyProgram)
+                    <option value="{{ $studyProgram->id }}" {{ $project->study_program_id == $studyProgram->id ? 'selected' : '' }}>{{ $studyProgram->name }}</option>
+                </select>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="col-md-6">
                 <label for="level" class="form-label">Level</label>
                 <select name="level" id="level" class="form-control">
                     <option value="beginner" {{ $project->level == 'beginner' ? 'selected' : '' }}>Beginner</option>

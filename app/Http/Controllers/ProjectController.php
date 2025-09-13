@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\StudyProgram;
 
 class ProjectController extends Controller
 {
@@ -20,7 +21,8 @@ class ProjectController extends Controller
 
     public function create()
     {
-        return view('pages.backend.projects.create');
+        $studyPrograms = StudyProgram::all();
+        return view('pages.backend.projects.create', compact('studyPrograms'));
     }
 
     public function store(Request $request)
@@ -32,6 +34,7 @@ class ProjectController extends Controller
             'description' => 'required|string',
             'level' => 'required|string|max:255',
             'score' => 'nullable|integer',
+            'study_program_id' => 'required|exists:study_programs,id',
         ]);
 
         $data = $request->all();
@@ -39,6 +42,7 @@ class ProjectController extends Controller
         $data['start_date'] = date('Y-m-d');
         $data['score'] = $request->score ?? 0;
         $data['end_date'] = date('Y-m-d', strtotime('+' . $request->estimate_time . ' days'));
+        $data['study_program_id'] = $request->study_program_id;
         if ($request->hasFile('thumbnail')) {
             $data['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
         }
@@ -56,7 +60,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $users = User::all();
-        return view('pages.backend.projects.edit', compact('project', 'users'));
+        $studyPrograms = StudyProgram::all();
+        return view('pages.backend.projects.edit', compact('project', 'users', 'studyPrograms'));
     }
 
     public function update(Request $request, Project $project)
@@ -68,6 +73,7 @@ class ProjectController extends Controller
             'description' => 'required|string',
             'level' => 'required|string|max:255',
             'score' => 'nullable|integer',
+            'study_program_id' => 'required|exists:study_programs,id',
         ]);
 
         $data = $request->all();
@@ -75,7 +81,7 @@ class ProjectController extends Controller
         $data['start_date'] = $project->created_at;
         $data['end_date'] = date('Y-m-d', strtotime('+' . $request->estimate_time . ' days', strtotime($project->created_at)));
         $data['score'] = $request->score ?? 0;
-
+        $data['study_program_id'] = $request->study_program_id;
         if ($request->hasFile('thumbnail')) {
             Storage::delete($project->thumbnail);
             $data['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
