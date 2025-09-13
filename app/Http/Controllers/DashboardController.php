@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::with('contributors')->get();
         return view('pages.backend.dashboard', compact('users'));
     }
 }

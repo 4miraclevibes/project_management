@@ -33,24 +33,22 @@
             <td>{{ $contributor->status }}</td>
             <td>
                 @if (Auth::user()->role->name == 'admin' || Auth::user()->role->name == 'teacher')
-                <div class="d-flex justify-content-center">
-                <form action="{{ route('contributors.update', $contributor->id) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <div class="input-group input-group-sm mx-2 w-50">
-                      <select name="status" class="form-select form-select-sm">
-                        <option value="pending" {{ $contributor->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                        <option value="rejected" {{ $contributor->status == 'rejected' ? 'selected' : '' }}>Rejected</option>
-                        <option value="cancelled" {{ $contributor->status == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
-                        <option value="active" {{ $contributor->status == 'active' ? 'selected' : '' }}>Active</option>
-                        <option value="inactive" {{ $contributor->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
-                        <option value="fired" {{ $contributor->status == 'fired' ? 'selected' : '' }}>Fired</option>
-                        <option value="completed" {{ $contributor->status == 'completed' ? 'selected' : '' }}>Completed</option>
-                      </select>
-                    </div>
-                    <button type="submit" class="btn btn-warning btn-sm mx-2">Update</button>
-                </form>
-                <a href="{{ route('contributors.edit', $contributor->id) }}" class="btn btn-warning btn-sm mx-2">Edit</a>
+                <div class="d-flex align-items-center justify-content-center gap-2">
+                    <form action="{{ route('contributors.update', $contributor->id) }}" method="POST" class="d-flex align-items-center gap-2">
+                        @csrf
+                        @method('PATCH')
+                        <select name="status" class="form-select form-select-sm" style="width: 120px;">
+                            <option value="pending" {{ $contributor->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                            <option value="rejected" {{ $contributor->status == 'rejected' ? 'selected' : '' }}>Rejected</option>
+                            <option value="cancelled" {{ $contributor->status == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                            <option value="active" {{ $contributor->status == 'active' ? 'selected' : '' }}>Active</option>
+                            <option value="inactive" {{ $contributor->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                            <option value="fired" {{ $contributor->status == 'fired' ? 'selected' : '' }}>Fired</option>
+                            <option value="completed" {{ $contributor->status == 'completed' ? 'selected' : '' }}>Completed</option>
+                        </select>
+                        <button type="submit" class="btn btn-warning btn-sm">Update</button>
+                    </form>
+                    <a href="{{ route('contributors.edit', $contributor->id) }}" class="btn btn-primary btn-sm">Edit</a>
                 </div>
                 @else
                 <div class="d-flex justify-content-center">
