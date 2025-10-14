@@ -43,7 +43,7 @@
                 @csrf
                 @method('PATCH')
                 <div class="input-group input-group-sm mx-2 w-75" style="min-width:max-content;">
-                  <select name="status" class="form-select form-select-sm">
+                  <select name="status" class="form-select form-select-sm" {{ $project->status == 'completed' ? 'disabled' : '' }}>
                     <option value="pending" {{ $project->status == 'pending' ? 'selected' : '' }}>Pending</option>
                     <option value="accepted" {{ $project->status == 'accepted' ? 'selected' : '' }}>Accepted</option>
                     <option value="rejected" {{ $project->status == 'rejected' ? 'selected' : '' }}>Rejected</option>
@@ -51,7 +51,7 @@
                     <option value="completed" {{ $project->status == 'completed' ? 'selected' : '' }}>Completed</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                <button type="submit" class="btn btn-primary btn-sm" {{ $project->status == 'completed' ? 'disabled' : '' }}>Update</button>
               </form>
               @else
               <div class="d-flex justify-content-center">
