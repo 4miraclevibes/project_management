@@ -22,6 +22,8 @@
                     @endforeach
                 </select>
             </div>
+        </div>
+        <div class="row mb-3">
             <div class="col-md-6">
                 <label for="level" class="form-label">Level</label>
                 <select name="level" id="level" class="form-control">
@@ -58,3 +60,4 @@
     </form>
 </div>
 @endsection
+
